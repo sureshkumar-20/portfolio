@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Skills & Tech Stack — Suresh Kumar K</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #6D28D9;
+      --primary-hover: #5B21B6;
+      --accent-blue: #3B82F6;
+      --accent-pink: #EC4899;
+      --primary-soft: #F5F3FF;
+      --dark: #0F172A;
+      --text: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1160px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= STYLISH ANIMATED BACKGROUND ================= */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(109, 40, 217, 0.09), transparent 38%),
+        radial-gradient(circle at 90% 20%, rgba(59, 130, 246, 0.09), transparent 38%),
+        radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.07), transparent 42%),
+        linear-gradient(180deg, #FFFFFF 0%, #FAF8FF 100%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.42;
+    }
+
+    .wave-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 340px;
+      opacity: 0.9;
+    }
+
+    .wave-path-1 {
+      animation: waveMove 18s linear infinite;
+    }
+
+    .wave-path-2 {
+      animation: waveMove 26s linear infinite reverse;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+    }
+
+    .bg-icon {
+      position: absolute;
+      color: var(--primary);
+      opacity: 0.08;
+      font-size: 2.5rem;
+      animation: floatIcon 9s ease-in-out infinite alternate;
+      transition: transform 0.2s ease-out;
+    }
+
+    .bg-icon.i1 { top: 14%; left: 6%; animation-delay: 0s; }
+    .bg-icon.i2 { top: 22%; right: 8%; animation-delay: 1.5s; }
+    .bg-icon.i3 { top: 54%; left: 4%; animation-delay: 3s; }
+    .bg-icon.i4 { top: 65%; right: 6%; animation-delay: 2s; }
+    .bg-icon.i5 { top: 38%; left: 48%; animation-delay: 4s; }
+
+    @keyframes floatIcon {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: var(--dark);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      transition: background 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* ================= HERO HEADER ================= */
+    .page-header {
+      padding: 60px 0 34px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 243, 255, 0.95);
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.08);
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #6D28D9 0%, #3B82F6 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* ================= CONTROLS BAR (FILTER + SEARCH) ================= */
+    .controls-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .filter-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      padding: 6px;
+      border-radius: 50px;
+      gap: 5px;
+      box-shadow: 0 8px 24px -10px rgba(15, 23, 42, 0.1);
+    }
+
+    .filter-btn {
+      border: none;
+      background: transparent;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #6D28D9, #4F46E5);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
+    }
+
+    .filter-btn:not(.active):hover {
+      color: var(--dark);
+    }
+
+    .search-box {
+      position: relative;
+      width: 260px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 11px 16px 11px 38px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--dark);
+      outline: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px -10px rgba(15, 23, 42, 0.08);
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ================= INTERACTIVE SKILL INSPECTOR BAR ================= */
+    .inspector-bar {
+      max-width: 820px;
+      margin: 0 auto 36px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 27, 75, 0.96));
+      color: #fff;
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      border-radius: 16px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 14px 30px -10px rgba(15, 23, 42, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .inspector-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .inspector-pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #34D399;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    .inspector-text strong {
+      color: #C4B5FD;
+      font-size: 0.92rem;
+      display: block;
+    }
+
+    .inspector-text span {
+      font-size: 0.86rem;
+      color: #E2E8F0;
+    }
+
+    .inspector-hint {
+      font-size: 0.76rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px 11px;
+      border-radius: 50px;
+      color: #CBD5E1;
+      white-space: nowrap;
+    }
+
+    /* ================= 3D TILT + SPOTLIGHT BENTO GRID ================= */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      margin-bottom: 50px;
+      perspective: 1200px;
+    }
+
+    .skill-card {
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 16px 38px -15px rgba(15, 23, 42, 0.08);
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-card.hidden {
+      display: none;
+    }
+
+    /* Interactive Cursor Spotlight Glow */
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        420px circle at var(--mouse-x) var(--mouse-y),
+        rgba(109, 40, 217, 0.11),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Animated Gradient Top Bar */
+    .skill-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #6D28D9, #3B82F6, #EC4899, #6D28D9);
+      background-size: 200% 100%;
+      animation: gradientSlide 4s linear infinite;
+    }
+
+    @keyframes gradientSlide {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .skill-card:hover {
+      border-color: #C4B5FD;
+      box-shadow: 0 26px 50px -15px rgba(109, 40, 217, 0.2);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #6D28D9, #4F46E5);
+      color: #fff;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 8px 18px -4px rgba(109, 40, 217, 0.4);
+    }
+
+    .card-title-wrap h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .card-title-wrap span {
+      font-size: 0.84rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    /* Circular SVG Progress Ring */
+    .ring-box {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring-box svg {
+      transform: rotate(-90deg);
+      width: 48px;
+      height: 48px;
+    }
+
+    .ring-bg {
+      fill: none;
+      stroke: #EDE9FE;
+      stroke-width: 4;
+    }
+
+    .ring-fill {
+      fill: none;
+      stroke: url(#ringGrad);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 126;
+      stroke-dashoffset: 126;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .ring-label {
+      position: absolute;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* Interactive Clickable Skill Chips */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-tag {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--dark);
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag i {
+      color: var(--primary);
+      font-size: 0.78rem;
+    }
+
+    .skill-tag:hover,
+    .skill-tag.selected {
+      background: linear-gradient(135deg, #6D28D9, #4F46E5);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(109, 40, 217, 0.25);
+    }
+
+    .skill-tag:hover i,
+    .skill-tag.selected i {
+      color: #fff;
+    }
+
+    /* ================= FULL-WIDTH E-COMMERCE SPECIALIST SHOWCASE ================= */
+    .skill-card.ecom-showcase {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      color: #fff;
+    }
+
+    .skill-card.ecom-showcase h3 {
+      color: #fff;
+    }
+
+    .skill-card.ecom-showcase .card-title-wrap span {
+      color: #CBD5E1;
+    }
+
+    .marketplace-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mp-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #E0E7FF;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ecom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ecom-point {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 15px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: #E2E8F0;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .ecom-point:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .ecom-point strong {
+      color: #fff;
+    }
+
+    .ecom-point i {
+      color: #34D399;
+      margin-top: 4px;
+      font-size: 1rem;
+    }
+
+    /* ================= TOOLS & PLATFORMS DOCK ================= */
+    .tools-section {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 34px;
+      margin-bottom: 55px;
+      box-shadow: 0 18px 40px -15px rgba(15, 23, 42, 0.08);
+    }
+
+    .tools-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tools-header h2 {
+      font-size: 1.45rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tools-header h2 i {
+      color: var(--primary);
+    }
+
+    .tools-pill {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .tool-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .tool-box:hover {
+      background: #fff;
+      border-color: var(--primary);
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 16px 28px -10px rgba(109, 40, 217, 0.28);
+    }
+
+    .tool-icon-circle {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 10px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #F5F3FF, #EEF2FF);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: all 0.25s ease;
+    }
+
+    .tool-box:hover .tool-icon-circle {
+      background: linear-gradient(135deg, #6D28D9, #4F46E5);
+      color: #fff;
+      transform: rotate(-6deg);
+    }
+
+    .tool-box strong {
+      font-size: 0.88rem;
+      color: var(--dark);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .tool-box span {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    /* ================= NEXT PAGE CTA ================= */
+    .next-page-bar {
+      margin: 0 auto 60px;
+      background: linear-gradient(135deg, rgba(109, 40, 217, 0.06), rgba(236, 72, 153, 0.06));
+      border: 1px solid #DDD6FE;
+      border-radius: 20px;
+      padding: 28px 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .next-page-bar h3 {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .next-page-bar p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -6px rgba(109, 40, 217, 0.45);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(226, 232, 240, 0.7);
+      background: rgba(255, 255, 255, 0.85);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      .skills-grid, .ecom-grid {
+        grid-template-columns: 1fr;
+      }
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .search-box {
+        width: 100%;
+        max-width: 340px;
+      }
+      .inspector-hint {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 18px;
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+      .filter-bar {
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HIDDEN SVG GRADIENT FOR CIRCULAR RINGS -->
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6D28D9" />
+        <stop offset="50%" stop-color="#3B82F6" />
+        <stop offset="100%" stop-color="#EC4899" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- STYLISH COLORFUL WAVE LINES, DOT GRID & FLOATING ICONS -->
+  <div class="bg-layer">
+    <div class="bg-grid"></div>
+    <div class="floating-icons" id="parallaxIcons">
+      <i class="fas fa-search-dollar bg-icon i1" data-speed="2"></i>
+      <i class="fab fa-wordpress bg-icon i2" data-speed="-2.5"></i>
+      <i class="fas fa-chart-pie bg-icon i3" data-speed="2.5"></i>
+      <i class="fas fa-bullhorn bg-icon i4" data-speed="-2"></i>
+      <i class="fas fa-shopping-bag bg-icon i5" data-speed="1.8"></i>
+    </div>
+
+    <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.65" />
+          <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.65" />
+          <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.65" />
+        </linearGradient>
+
+        <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#EC4899" stop-opacity="0.50" />
+          <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.50" />
+        </linearGradient>
+
+        <linearGradient id="waveFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.14" />
+          <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.14" />
+        </linearGradient>
+      </defs>
+
+      <path class="wave-path-1" fill="none" stroke="url(#waveGrad1)" stroke-width="3"
+        d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150 C1680,70 1920,230 2160,150 C2400,70 2640,230 2880,150" />
+
+      <path class="wave-path-2" fill="none" stroke="url(#waveGrad2)" stroke-width="2.5"
+        d="M0,200 C240,270 480,120 720,200 C960,270 1200,120 1440,200 C1680,270 1920,120 2160,200 C2400,270 2640,120 2880,200" />
+
+      <path class="wave-path-1" fill="url(#waveFill)"
+        d="M0,220 C360,150 720,290 1080,220 C1440,150 1800,290 2160,220 C2520,150 2700,250 2880,220 L2880,320 L0,320 Z" />
+    </svg>
+  </div>
+
+  <!-- NAVBAR -->
+	<header>
+    		<div class="container navbar">
+      		<a href="index.html" class="brand">Suresh<span>Kumar.</span></a>
+      			<div class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></div>
+    			  <ul class="nav-menu" id="navMenu">
+        			<li><a href="index.html">Home</a></li>
+        			<li><a href="skills.html" class="active">Skills</a></li>
+        			<li><a href="education.html">Education</a></li>
+        			<li><a href="experience.html">Experience</a></li>
+        			<li><a href="projects.html">Projects</a></li>
+        			<li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+     			 </ul>
+   		 </div>
+  	</header>
+
+  <main class="container">
+    <!-- PAGE HEADER + FILTER + LIVE SEARCH -->
+    <section class="page-header">
+      <div class="badge">
+        <i class="fas fa-bolt"></i> Core Competencies & Growth Stack
+      </div>
+      <h1>My <span class="gradient-text">Core Skills</span> & Expertise</h1>
+      <p>
+        End-to-end expertise across SEO, Google & Meta Ads, B2B/B2C Lead Generation, WordPress Development, and E-Commerce Sales Operations.
+      </p>
+
+      <div class="controls-wrap">
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterSkills('all', this)">All Skills</button>
+          <button class="filter-btn" onclick="filterSkills('marketing', this)">SEO & Ads</button>
+          <button class="filter-btn" onclick="filterSkills('leadgen', this)">Lead Gen & Email</button>
+          <button class="filter-btn" onclick="filterSkills('web', this)">Web & Design</button>
+          <button class="filter-btn" onclick="filterSkills('ecommerce', this)">E-Commerce</button>
+        </div>
+
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="skillSearch" placeholder="Search a skill or tool..." onkeyup="searchSkills()" />
+        </div>
+      </div>
+
+      <!-- Interactive Live Skill Inspector Bar -->
+      <div class="inspector-bar" id="inspectorBar">
+        <div class="inspector-left">
+          <span class="inspector-pulse"></span>
+          <div class="inspector-text">
+            <strong id="inspectorTitle">Interactive Skill Inspector</strong>
+            <span id="inspectorDesc">Click any skill tag below to see how I apply it in real campaigns & websites.</span>
+          </div>
+        </div>
+        <span class="inspector-hint"><i class="fas fa-hand-pointer"></i> Click any skill chip</span>
+      </div>
+    </section>
+
+    <!-- ================= 3D TILT BENTO SKILLS GRID ================= -->
+    <section class="skills-grid" id="skillsGrid">
+
+      <!-- 1. Search Engine Optimization (SEO) -->
+      <div class="skill-card tilt-card" data-group="marketing">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon"><i class="fas fa-search"></i></div>
+            <div>
+              <h3>Search Engine Optimization (SEO)</h3>
+              <span>Organic Visibility & Search Rankings</span>
+            </div>
+          </div>
+          <div class="ring-box" data-percent="95">
+            <svg><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring-fill" cx="24" cy="24" r="20"/></svg>
+            <span class="ring-label">95%</span>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-info="Optimizing meta titles, H1-H3 tags, internal linking, URL structure, and content relevance for higher SERP rankings."><i class="fas fa-check"></i> On-Page SEO</span>
+          <span class="skill-tag" data-info="Building high-authority backlinks, directory submissions, and brand citations to boost domain authority."><i class="fas fa-check"></i> Off-Page SEO</span>
+          <span class="skill-tag" data-info="Fixing crawl errors, Core Web Vitals speed, XML sitemaps, schema markup, and mobile indexing in Search Console."><i class="fas fa-check"></i> Technical SEO</span>
+          <span class="skill-tag" data-info="Finding high-intent, low-difficulty commercial keywords using Google Keyword Planner and Ahrefs."><i class="fas fa-check"></i> Keyword Research (Google Keyword Planner)</span>
+          <span class="skill-tag" data-info="Optimizing Google Business Profile and local citations for regional businesses like Subiksha Preschool & Tinis Studio."><i class="fas fa-check"></i> Local SEO</span>
+          <span class="skill-tag" data-info="Acquiring niche-relevant backlinks to strengthen page authority and organic search visibility."><i class="fas fa-check"></i> Link Building</span>
+          <span class="skill-tag" data-info="Full-site SEO health audits identifying broken links, duplicate content, and ranking opportunities."><i class="fas fa-check"></i> SEO Audits</span>
+        </div>
+      </div>
+
+      <!-- 2. Digital Marketing & Paid Advertising (PPC) -->
+      <div class="skill-card tilt-card" data-group="marketing">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon"><i class="fas fa-bullhorn"></i></div>
+            <div>
+              <h3>Digital Marketing & Paid Ads (PPC)</h3>
+              <span>Performance Campaigns & ROI Growth</span>
+            </div>
+          </div>
+          <div class="ring-box" data-percent="92">
+            <svg><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring-fill" cx="24" cy="24" r="20"/></svg>
+            <span class="ring-label">92%</span>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-info="Running high-intent Search & Display ad campaigns with negative keyword filtering and conversion tracking."><i class="fas fa-check"></i> Google Ads</span>
+          <span class="skill-tag" data-info="Creating lead-generation and brand awareness campaigns on Facebook & Instagram with targeted audience testing."><i class="fas fa-check"></i> Meta Ads (Facebook & Instagram)</span>
+          <span class="skill-tag" data-info="Structuring ad sets, A/B testing creatives, and scaling winning campaigns for lower Cost-Per-Lead (CPL)."><i class="fas fa-check"></i> PPC Campaign Management</span>
+          <span class="skill-tag" data-info="Allocating daily/monthly ad spend efficiently and tracking ROAS & CPL metrics in GA4 and Ad Managers."><i class="fas fa-check"></i> Budget Management & Tracking</span>
+          <span class="skill-tag" data-info="Growing brand engagement and inbound leads across LinkedIn, Instagram, and Facebook."><i class="fas fa-check"></i> Social Media Marketing</span>
+          <span class="skill-tag" data-info="Crafting SEO-driven blog posts, landing page copy, and ad scripts that educate and convert prospects."><i class="fas fa-check"></i> Content Marketing</span>
+          <span class="skill-tag" data-info="Refining landing page layouts, CTAs, and lead forms to maximize visitor-to-lead conversion rates."><i class="fas fa-check"></i> Conversion Optimization</span>
+        </div>
+      </div>
+
+      <!-- 3. Lead Generation -->
+      <div class="skill-card tilt-card" data-group="leadgen">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon"><i class="fas fa-user-check"></i></div>
+            <div>
+              <h3>B2B & B2C Lead Generation</h3>
+              <span>Prospecting & Pipeline Building (136+ MQLs)</span>
+            </div>
+          </div>
+          <div class="ring-box" data-percent="94">
+            <svg><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring-fill" cx="24" cy="24" r="20"/></svg>
+            <span class="ring-label">94%</span>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-info="Generated 136+ Marketing Qualified Leads (MQLs) through targeted decision-maker prospecting and outreach."><i class="fas fa-check"></i> B2B Lead Generation</span>
+          <span class="skill-tag" data-info="Driving local consumer inquiries for education, beauty studios, and retail businesses via Meta & Google Ads."><i class="fas fa-check"></i> B2C Lead Generation</span>
+          <span class="skill-tag" data-info="Identifying ideal customer profiles (ICPs), event attendees, and industry decision-makers on LinkedIn."><i class="fas fa-check"></i> LinkedIn Prospecting</span>
+          <span class="skill-tag" data-info="Writing personalized, spam-compliant B2B cold email sequences that spark sales conversations."><i class="fas fa-check"></i> Cold Email Outreach</span>
+          <span class="skill-tag" data-info="Organizing prospect pipelines, follow-up statuses, and deal stages in CRM & Google Sheets."><i class="fas fa-check"></i> CRM Management</span>
+          <span class="skill-tag" data-info="Filtering and scoring prospects so sales teams focus only on high-intent, ready-to-buy leads."><i class="fas fa-check"></i> Lead Qualification</span>
+        </div>
+      </div>
+
+      <!-- 4. Email Marketing -->
+      <div class="skill-card tilt-card" data-group="leadgen">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <div>
+              <h3>Email Marketing & Automation</h3>
+              <span>Targeted Outreach & List Segmentation</span>
+            </div>
+          </div>
+          <div class="ring-box" data-percent="90">
+            <svg><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring-fill" cx="24" cy="24" r="20"/></svg>
+            <span class="ring-label">90%</span>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-info="Designing high-open-rate cold outreach and nurture email campaigns tailored to specific industries."><i class="fas fa-check"></i> Campaign Creation</span>
+          <span class="skill-tag" data-info="Setting up automated multi-step follow-up sequences to boost reply rates without manual effort."><i class="fas fa-check"></i> Email Automation</span>
+          <span class="skill-tag" data-info="Segmenting contact databases by industry, job title, and geography for hyper-relevant messaging."><i class="fas fa-check"></i> List Segmentation</span>
+          <span class="skill-tag" data-info="Sourcing verified B2B emails and running multi-touch outreach sequences inside Apollo.io."><i class="fas fa-check"></i> Apollo.io Workflows</span>
+          <span class="skill-tag" data-info="Managing professional B2B correspondence, meeting scheduling, and follow-ups via Outlook."><i class="fas fa-check"></i> Outlook Outreach</span>
+          <span class="skill-tag" data-info="Cleaning prospect lists and tracking open, reply, and bounce metrics in Google Sheets."><i class="fas fa-check"></i> Google Sheets Tracking</span>
+        </div>
+      </div>
+
+      <!-- 5. Web Development -->
+      <div class="skill-card tilt-card" data-group="web">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon"><i class="fab fa-wordpress"></i></div>
+            <div>
+              <h3>Web Development</h3>
+              <span>Responsive Sites & WooCommerce Stores</span>
+            </div>
+          </div>
+          <div class="ring-box" data-percent="92">
+            <svg><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring-fill" cx="24" cy="24" r="20"/></svg>
+            <span class="ring-label">92%</span>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-info="Building custom, fast-loading business websites like Growzens.com with SEO-ready architecture."><i class="fas fa-check"></i> WordPress</span>
+          <span class="skill-tag" data-info="Developing complete online stores like ModernComputerz.com with payment gateways and product catalogs."><i class="fas fa-check"></i> WooCommerce</span>
+          <span class="skill-tag" data-info="Writing clean, semantic HTML5 markup structured for accessibility and search engine crawling."><i class="fas fa-check"></i> HTML5</span>
+          <span class="skill-tag" data-info="Crafting modern responsive layouts, animations, and custom UI styling with CSS3."><i class="fas fa-check"></i> CSS3</span>
+          <span class="skill-tag" data-info="Adding interactive UI behaviors, form validations, and dynamic page elements with JavaScript."><i class="fas fa-check"></i> JavaScript (Basic)</span>
+          <span class="skill-tag" data-info="Designing dedicated high-converting PPC & Meta Ads landing pages focused on lead capture."><i class="fas fa-check"></i> Landing Page Development</span>
+        </div>
+      </div>
+
+      <!-- 6. Graphic Design & Content Creation -->
+      <div class="skill-card tilt-card" data-group="web">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon"><i class="fas fa-palette"></i></div>
+            <div>
+              <h3>Graphic Design & Content Creation</h3>
+              <span>High-Converting Visuals & Brand Templates</span>
+            </div>
+          </div>
+          <div class="ring-box" data-percent="88">
+            <svg><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring-fill" cx="24" cy="24" r="20"/></svg>
+            <span class="ring-label">88%</span>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-info="Designing scroll-stopping marketing graphics, banners, and pitch decks quickly using Canva."><i class="fas fa-check"></i> Canva</span>
+          <span class="skill-tag" data-info="Creating cohesive Instagram & Facebook posts, carousels, and promotional stories for brands."><i class="fas fa-check"></i> Social Media Creatives</span>
+          <span class="skill-tag" data-info="Designing high-CTR Meta Ads creatives tailored for lead generation and local business promotions."><i class="fas fa-check"></i> Ad Visuals</span>
+          <span class="skill-tag" data-info="Building reusable, brand-consistent templates for social posts, proposals, and marketing collateral."><i class="fas fa-check"></i> Branded Templates</span>
+        </div>
+      </div>
+
+      <!-- 7. E-Commerce Sales Specialist (Dark Premium Full-Span Card) -->
+      <div class="skill-card ecom-showcase" data-group="ecommerce">
+        <div class="card-header">
+          <div class="card-title-wrap">
+            <div class="skill-icon" style="background: linear-gradient(135deg, #EC4899, #8B5CF6);"><i class="fas fa-shopping-cart"></i></div>
+            <div>
+              <h3>E-Commerce Sales Specialist</h3>
+              <span>Marketplace Operations & Direct Deal Closing (Modern Computerz)</span>
+            </div>
+          </div>
+          <div class="marketplace-pills">
+            <span class="mp-badge"><i class="fab fa-amazon"></i> Amazon</span>
+            <span class="mp-badge"><i class="fas fa-store"></i> Flipkart</span>
+            <span class="mp-badge"><i class="fas fa-bag-shopping"></i> Meesho</span>
+          </div>
+        </div>
+
+        <div class="ecom-grid">
+          <div class="ecom-point">
+            <i class="fas fa-check-circle"></i>
+            <span>Managed online sales operations across <strong>Amazon, Flipkart, and Meesho</strong>.</span>
+          </div>
+          <div class="ecom-point">
+            <i class="fas fa-check-circle"></i>
+            <span>Demonstrated strong <strong>deal-closing skills on Meesho</strong> with verified order receipts.</span>
+          </div>
+          <div class="ecom-point">
+            <i class="fas fa-check-circle"></i>
+            <span>Handled end-to-end order management including <strong>product listing, pricing, and customer coordination</strong>.</span>
+          </div>
+          <div class="ecom-point">
+            <i class="fas fa-check-circle"></i>
+            <span>Maintained <strong>accurate sales records</strong> and ensured timely order fulfillment.</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= TOOLS & PLATFORMS DOCK ================= -->
+    <section class="tools-section">
+      <div class="tools-header">
+        <h2><i class="fas fa-toolbox"></i> Tools & Platforms Arsenal</h2>
+        <span class="tools-pill">10+ Industry Tools</span>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-chart-line"></i></div>
+          <strong>Google Analytics 4</strong>
+          <span>Traffic & Funnel Tracking</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-search-plus"></i></div>
+          <strong>Search Console</strong>
+          <span>Indexing & SEO Health</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-link"></i></div>
+          <strong>Ahrefs</strong>
+          <span>Backlinks & Competitor SEO</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-key"></i></div>
+          <strong>Keyword Planner</strong>
+          <span>Search Volume & CPC</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fab fa-google"></i></div>
+          <strong>Google Ads</strong>
+          <span>Search & Display PPC</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fab fa-meta"></i></div>
+          <strong>Meta Ads</strong>
+          <span>FB & Instagram Campaigns</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-rocket"></i></div>
+          <strong>Apollo.io</strong>
+          <span>B2B Prospecting & Email</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fab fa-linkedin"></i></div>
+          <strong>LinkedIn</strong>
+          <span>B2B Outreach & MQLs</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-pen-nib"></i></div>
+          <strong>Canva</strong>
+          <span>Ad Visuals & Templates</span>
+        </div>
+        <div class="tool-box">
+          <div class="tool-icon-circle"><i class="fas fa-file-excel"></i></div>
+          <strong>Sheets, Outlook & Office</strong>
+          <span>CRM, Data & Reporting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT PAGE CALLOUT -->
+    <section class="next-page-bar">
+      <div>
+        <h3>See How I Apply These Skills</h3>
+        <p>Explore my live WordPress websites, WooCommerce stores, and 136+ MQL campaigns.</p>
+      </div>
+      <a href="projects.html" class="btn-primary">
+        Explore Projects <i class="fas fa-arrow-right"></i>
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 Suresh Kumar K • Digital Marketing & WordPress Portfolio
+    </div>
+  </footer>
+
+  <!-- JS: MOBILE MENU + 3D TILT + RINGS + CLICK INSPECTOR + SEARCH -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // 1. Animate Circular SVG Proficiency Rings on Load
+    window.addEventListener('load', () => {
+      const circumference = 2 * Math.PI * 20;
+      document.querySelectorAll('.ring-box').forEach(box => {
+        const percent = parseInt(box.getAttribute('data-percent'), 10);
+        const circle = box.querySelector('.ring-fill');
+        const offset = circumference - (percent / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
+      });
+    });
+
+    // 2. 3D Perspective Tilt + Cursor Spotlight Glow on Skill Cards
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // 3. Interactive Click-to-Inspect Skill Chips
+    document.querySelectorAll('.skill-tag').forEach(tag => {
+      tag.addEventListener('click', () => {
+        document.querySelectorAll('.skill-tag').forEach(t => t.classList.remove('selected'));
+        tag.classList.add('selected');
+
+        const title = tag.textContent.trim();
+        const info = tag.getAttribute('data-info');
+
+        document.getElementById('inspectorTitle').textContent = title;
+        document.getElementById('inspectorDesc').textContent = info;
+      });
+    });
+
+    // 4. Category Filter Tabs
+    function filterSkills(group, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('skillSearch').value = '';
+
+      document.querySelectorAll('.skill-card').forEach(card => {
+        if (group === 'all' || card.getAttribute('data-group') === group) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // 5. Instant Live Search inside Skills & Tools
+    function searchSkills() {
+      const query = document.getElementById('skillSearch').value.toLowerCase().trim();
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.filter-btn').classList.add('active');
+
+      document.querySelectorAll('.skill-card').forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // 6. Subtle Mouse Parallax for Floating Background Icons
+    document.addEventListener('mousemove', (e) => {
+      const icons = document.querySelectorAll('.bg-icon');
+      const x = (window.innerWidth - e.pageX * 2) / 90;
+      const y = (window.innerHeight - e.pageY * 2) / 90;
+
+      icons.forEach(icon => {
+        const speed = icon.getAttribute('data-speed');
+        icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Hire Me — Suresh Kumar K</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- EmailJS Official SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #6D28D9;
+      --primary-hover: #5B21B6;
+      --accent-blue: #2563EB;
+      --accent-pink: #EC4899;
+      --primary-soft: #F5F3FF;
+      --dark: #090D16;
+      --text: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1180px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= TRENDING AURORA + WAVE BACKGROUND ================= */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(109, 40, 217, 0.13), transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(37, 99, 235, 0.12), transparent 36%),
+        radial-gradient(circle at 50% 88%, rgba(236, 72, 153, 0.1), transparent 42%),
+        linear-gradient(180deg, #FFFFFF 0%, #F8F6FF 100%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(203, 213, 225, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(203, 213, 225, 0.25) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    }
+
+    .wave-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 340px;
+      opacity: 0.92;
+    }
+
+    .wave-path-1 {
+      animation: waveMove 18s linear infinite;
+    }
+
+    .wave-path-2 {
+      animation: waveMove 26s linear infinite reverse;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+    }
+
+    .bg-icon {
+      position: absolute;
+      color: var(--primary);
+      opacity: 0.08;
+      font-size: 2.5rem;
+      animation: floatIcon 9s ease-in-out infinite alternate;
+      transition: transform 0.2s ease-out;
+    }
+
+    .bg-icon.i1 { top: 14%; left: 6%; animation-delay: 0s; }
+    .bg-icon.i2 { top: 22%; right: 8%; animation-delay: 1.5s; }
+    .bg-icon.i3 { top: 54%; left: 4%; animation-delay: 3s; }
+    .bg-icon.i4 { top: 65%; right: 6%; animation-delay: 2s; }
+    .bg-icon.i5 { top: 38%; left: 48%; animation-delay: 4s; }
+
+    @keyframes floatIcon {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    /* ================= GLASS NAVBAR ================= */
+    header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      box-shadow: 0 6px 16px -4px rgba(109, 40, 217, 0.35);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* ================= HERO HEADER ================= */
+    .page-header {
+      padding: 58px 0 38px;
+      text-align: center;
+    }
+
+    .status-pill-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(109, 40, 217, 0.08);
+    }
+
+    .live-indicator {
+      width: 8px;
+      height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .page-header h1 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #6D28D9 0%, #2563EB 48%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* ================= BENTO CONTACT GRID ================= */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 0.92fr 1.18fr;
+      gap: 32px;
+      margin-bottom: 60px;
+      align-items: start;
+      perspective: 1200px;
+    }
+
+    .contact-left {
+      display: grid;
+      gap: 18px;
+    }
+
+    .direct-card {
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 14px 32px -15px rgba(15, 23, 42, 0.08);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .direct-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        300px circle at var(--mouse-x) var(--mouse-y),
+        rgba(109, 40, 217, 0.1),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .direct-card:hover::before {
+      opacity: 1;
+    }
+
+    .direct-card:hover {
+      border-color: #C4B5FD;
+      box-shadow: 0 22px 42px -15px rgba(109, 40, 217, 0.18);
+    }
+
+    .direct-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .direct-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #F5F3FF, #EEF2FF);
+      color: var(--primary);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .direct-card:hover .direct-icon {
+      transform: scale(1.08) rotate(-4deg);
+    }
+
+    .direct-icon.whatsapp-bg {
+      background: #ECFDF5;
+      color: #16A34A;
+    }
+
+    .direct-info span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--muted);
+      display: block;
+    }
+
+    .direct-info strong {
+      font-size: 1rem;
+      color: var(--dark);
+      word-break: break-word;
+    }
+
+    .card-actions-mini {
+      display: flex;
+      gap: 6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mini-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .mini-icon-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Dark Premium Availability & Live Clock Card */
+    .availability-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #090D16 0%, #1E1B4B 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      box-shadow: 0 22px 48px -15px rgba(15, 23, 42, 0.32);
+    }
+
+    .availability-card::after {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.3), transparent 70%);
+      pointer-events: none;
+    }
+
+    .avail-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .availability-card h3 {
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .ist-clock {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #34D399;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 4px 11px;
+      border-radius: 50px;
+    }
+
+    .availability-card p {
+      font-size: 0.91rem;
+      color: #CBD5E1;
+      margin-bottom: 18px;
+    }
+
+    .avail-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .avail-tags span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 6px 13px;
+      border-radius: 50px;
+      color: #E0E7FF;
+    }
+
+    /* ================= RIGHT ANIMATED GLOWING BORDER FORM CARD ================= */
+    .form-glow-shell {
+      position: relative;
+      padding: 2.5px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #6D28D9, #2563EB, #EC4899, #6D28D9);
+      background-size: 300% 300%;
+      animation: borderShift 6s ease infinite;
+      box-shadow: 0 24px 54px -15px rgba(109, 40, 217, 0.24);
+    }
+
+    @keyframes borderShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .form-card {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .form-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .form-card h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .form-card p.sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .reply-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #059669;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 5px 12px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .service-label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .service-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .s-chip {
+      border: 1px solid var(--border);
+      background: #F8FAFC;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .s-chip.active,
+    .s-chip:hover {
+      background: linear-gradient(135deg, #6D28D9, #4F46E5);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 5px 14px rgba(109, 40, 217, 0.28);
+      transform: translateY(-1px);
+    }
+
+    /* ================= MODERN FLOATING LABEL INPUTS ================= */
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .float-field {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .float-field input,
+    .float-field textarea {
+      width: 100%;
+      padding: 20px 16px 8px;
+      border-radius: 13px;
+      border: 1.5px solid var(--border);
+      background: #F8FAFC;
+      font-family: inherit;
+      font-size: 0.94rem;
+      color: var(--dark);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .float-field textarea {
+      padding-top: 24px;
+      resize: vertical;
+    }
+
+    .float-field label {
+      position: absolute;
+      left: 16px;
+      top: 15px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .float-field input:focus,
+    .float-field textarea:focus {
+      background: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.1);
+    }
+
+    .float-field input:focus + label,
+    .float-field input:not(:placeholder-shown) + label,
+    .float-field textarea:focus + label,
+    .float-field textarea:not(:placeholder-shown) + label {
+      top: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* One-Tap Smart Message Starters */
+    .smart-starters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .starter-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .starter-pill {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border: 1px dashed #C4B5FD;
+      padding: 4px 11px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .starter-pill:hover {
+      background: var(--primary);
+      color: #fff;
+      border-style: solid;
+    }
+
+    .submit-actions {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .btn-email {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      color: #fff;
+      border: none;
+      padding: 15px 22px;
+      border-radius: 13px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-email:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -6px rgba(236, 72, 153, 0.5);
+    }
+
+    .btn-email:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #16A34A, #15803D);
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 13px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -6px rgba(22, 163, 74, 0.45);
+    }
+
+    /* Celebration Success State Inside Form */
+    .success-celebration {
+      display: none;
+      text-align: center;
+      padding: 36px 20px;
+      animation: popIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .success-circle {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #fff;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 28px -6px rgba(16, 185, 129, 0.45);
+    }
+
+    .success-celebration h3 {
+      font-size: 1.55rem;
+      margin-bottom: 8px;
+    }
+
+    .success-celebration p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 400px;
+      margin: 0 auto 22px;
+    }
+
+    .reset-form-btn {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .reset-form-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .form-error {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: #FEF2F2;
+      color: #991B1B;
+      border: 1px solid #FECACA;
+    }
+
+    /* ================= QUICK FAQ BENTO STRIP ================= */
+    .faq-section {
+      margin-bottom: 65px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .faq-title h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      transition: all 0.25s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #C4B5FD;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px -15px rgba(109, 40, 217, 0.16);
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--dark);
+    }
+
+    .faq-q i {
+      color: var(--primary);
+    }
+
+    .faq-a {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      background: #090D16;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(226, 232, 240, 0.7);
+      background: rgba(255, 255, 255, 0.85);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .contact-wrapper, .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-header h1 {
+        font-size: 2.3rem;
+      }
+      .input-row, .submit-actions {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 18px;
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+      .form-card {
+        padding: 26px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TRENDING AURORA + WAVE BACKGROUND -->
+  <div class="bg-layer">
+    <div class="bg-grid"></div>
+    <div class="floating-icons" id="parallaxIcons">
+      <i class="fas fa-paper-plane bg-icon i1" data-speed="2"></i>
+      <i class="fab fa-whatsapp bg-icon i2" data-speed="-2.5"></i>
+      <i class="fas fa-envelope-open-text bg-icon i3" data-speed="2.5"></i>
+      <i class="fas fa-handshake bg-icon i4" data-speed="-2"></i>
+      <i class="fas fa-rocket bg-icon i5" data-speed="1.8"></i>
+    </div>
+
+    <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.65" />
+          <stop offset="50%" stop-color="#2563EB" stop-opacity="0.65" />
+          <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.65" />
+        </linearGradient>
+
+        <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#EC4899" stop-opacity="0.50" />
+          <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.50" />
+        </linearGradient>
+
+        <linearGradient id="waveFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.14" />
+          <stop offset="50%" stop-color="#2563EB" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.14" />
+        </linearGradient>
+      </defs>
+
+      <path class="wave-path-1" fill="none" stroke="url(#waveGrad1)" stroke-width="3"
+        d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150 C1680,70 1920,230 2160,150 C2400,70 2640,230 2880,150" />
+
+      <path class="wave-path-2" fill="none" stroke="url(#waveGrad2)" stroke-width="2.5"
+        d="M0,200 C240,270 480,120 720,200 C960,270 1200,120 1440,200 C1680,270 1920,120 2160,200 C2400,270 2640,120 2880,200" />
+
+      <path class="wave-path-1" fill="url(#waveFill)"
+        d="M0,220 C360,150 720,290 1080,220 C1440,150 1800,290 2160,220 C2520,150 2700,250 2880,220 L2880,320 L0,320 Z" />
+    </svg>
+  </div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="brand">Suresh<span>Kumar.</span></a>
+      <div class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <div class="status-pill-row">
+        <div class="badge">
+          <span class="live-indicator"></span> Available for Full-Time & Freelance
+        </div>
+        <div class="badge">
+          <i class="fas fa-bolt"></i> Avg. Response: Under 2 Hours
+        </div>
+      </div>
+      <h1>Let’s Build & <span class="gradient-text">Scale Together</span></h1>
+      <p>
+        Looking for an SEO Executive, Digital Marketer, Lead Generation Specialist, or WordPress Developer? Send a direct email or chat on WhatsApp.
+      </p>
+    </section>
+
+    <!-- ================= BENTO CONTACT GRID ================= -->
+    <section class="contact-wrapper">
+
+      <!-- Left Direct Info Cards with 3D Tilt & Quick Actions -->
+      <div class="contact-left">
+        <!-- Phone / WhatsApp -->
+        <div class="direct-card tilt-card">
+          <div class="direct-left">
+            <div class="direct-icon whatsapp-bg"><i class="fab fa-whatsapp"></i></div>
+            <div class="direct-info">
+              <span>Phone & WhatsApp</span>
+              <strong>+91 82707 64314</strong>
+            </div>
+          </div>
+          <div class="card-actions-mini">
+            <a href="tel:+918270764314" class="mini-icon-btn" title="Call Now"><i class="fas fa-phone"></i></a>
+            <button class="mini-icon-btn" onclick="copyText('+918270764314', 'Phone number copied!')" title="Copy Number">
+              <i class="far fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="direct-card tilt-card">
+          <div class="direct-left">
+            <div class="direct-icon"><i class="fas fa-envelope"></i></div>
+            <div class="direct-info">
+              <span>Email Address</span>
+              <strong>Sureshkumar.k1113@gmail.com</strong>
+            </div>
+          </div>
+          <div class="card-actions-mini">
+            <button class="mini-icon-btn" onclick="copyText('Sureshkumar.k1113@gmail.com', 'Email address copied!')" title="Copy Email">
+              <i class="far fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="direct-card tilt-card">
+          <div class="direct-left">
+            <div class="direct-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="direct-info">
+              <span>Location</span>
+              <strong>Dindigul / Palani, Tamil Nadu</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Availability Card with Live IST Clock -->
+        <div class="availability-card">
+          <div class="avail-top">
+            <h3>Open for Opportunities</h3>
+            <span class="ist-clock" id="istClock">IST • Online</span>
+          </div>
+          <p>Whether you're hiring for a growth team or need a high-converting website & ad campaign, I respond promptly.</p>
+          <div class="avail-tags">
+            <span>Full-Time Roles</span>
+            <span>Freelance Web Dev</span>
+            <span>Meta & Google Ads</span>
+            <span>SEO Audits</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Animated Glowing Border Form Card -->
+      <div class="form-glow-shell">
+        <div class="form-card">
+          <!-- Form Wrapper -->
+          <div id="formContentWrap">
+            <div class="form-card-head">
+              <div>
+                <h2>Send a Direct Message</h2>
+                <p class="sub">Delivered straight to my Gmail inbox or WhatsApp.</p>
+              </div>
+              <span class="reply-badge"><i class="fas fa-shield-check"></i> Direct Inbox</span>
+            </div>
+
+            <form id="contactForm">
+              <span class="service-label">1. Select what you need help with:</span>
+              <div class="service-chips" id="serviceChips">
+                <button type="button" class="s-chip active" data-val="SEO & Organic Growth">SEO & Organic Growth</button>
+                <button type="button" class="s-chip" data-val="Meta & Google Ads">Meta & Google Ads</button>
+                <button type="button" class="s-chip" data-val="WordPress / WooCommerce Site">WordPress / WooCommerce</button>
+                <button type="button" class="s-chip" data-val="B2B Lead Generation">B2B Lead Generation</button>
+                <button type="button" class="s-chip" data-val="Job / Hiring Opportunity">Job / Hiring</button>
+              </div>
+
+              <div class="input-row">
+                <div class="float-field" style="margin-bottom: 0;">
+                  <input type="text" id="cName" name="from_name" placeholder=" " required />
+                  <label for="cName">Your Name *</label>
+                </div>
+                <div class="float-field" style="margin-bottom: 0;">
+                  <input type="text" id="cPhone" name="phone" placeholder=" " />
+                  <label for="cPhone">Phone / Company (Optional)</label>
+                </div>
+              </div>
+
+              <div class="float-field">
+                <input type="email" id="cEmail" name="from_email" placeholder=" " required />
+                <label for="cEmail">Email Address *</label>
+              </div>
+
+              <div class="float-field" style="margin-bottom: 10px;">
+                <textarea id="cMsg" name="message" rows="4" maxlength="500" placeholder=" " required></textarea>
+                <label for="cMsg">Project Details or Message *</label>
+              </div>
+
+              <!-- One-Tap Smart Message Starters -->
+              <div class="smart-starters">
+                <span class="starter-label">Quick fill:</span>
+                <span class="starter-pill" onclick="fillTemplate('Hi Suresh, I would like to discuss building a responsive WordPress / WooCommerce website for my business.')">+ Website Quote</span>
+                <span class="starter-pill" onclick="fillTemplate('Hi Suresh, we are looking to improve our Google rankings and run high-ROI Meta / Google Ads campaigns.')">+ SEO & Ads Growth</span>
+                <span class="starter-pill" onclick="fillTemplate('Hi Suresh, we reviewed your portfolio and would like to schedule an interview for a Digital Marketing / SEO role.')">+ Hiring Inquiry</span>
+              </div>
+
+              <div class="submit-actions">
+                <button type="submit" class="btn-email" id="emailSubmitBtn">
+                  <i class="fas fa-paper-plane"></i> Send Direct Email
+                </button>
+                <button type="button" class="btn-whatsapp" onclick="sendViaWhatsApp()">
+                  <i class="fab fa-whatsapp" style="font-size: 1.15rem;"></i> WhatsApp Chat
+                </button>
+              </div>
+
+              <div class="form-error" id="formError"></div>
+            </form>
+          </div>
+
+          <!-- Celebration Success View -->
+          <div class="success-celebration" id="successCelebration">
+            <div class="success-circle"><i class="fas fa-check"></i></div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. Your inquiry has been delivered directly to <strong>Sureshkumar.k1113@gmail.com</strong> — I’ll reply shortly.</p>
+            <button type="button" class="reset-form-btn" onclick="resetContactForm()">
+              <i class="fas fa-redo"></i> Send Another Message
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= QUICK FAQ BENTO STRIP ================= -->
+    <section class="faq-section">
+      <div class="faq-title">
+        <h2>Quick <span class="gradient-text">Answers</span></h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Are you open to full-time & freelance work?</span>
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="faq-a">
+            Yes! I am open to full-time Digital Marketing / SEO / Lead Gen roles as well as freelance WordPress & Meta Ads projects.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>How fast can you build a WordPress site?</span>
+            <i class="fas fa-bolt"></i>
+          </div>
+          <div class="faq-a">
+            A responsive business website typically takes 4–7 days, and a complete WooCommerce store takes 7–12 days with SEO setup.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Do you manage both Ad Creatives & Campaigns?</span>
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="faq-a">
+            Yes — from designing ad visuals and video reels to running Meta/Google Ads and tracking leads in GA4 & CRM.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- COPY TOAST NOTIFICATION -->
+  <div class="toast" id="toastMsg">
+    <i class="fas fa-check-circle" style="color: #34D399;"></i>
+    <span id="toastText">Copied to clipboard!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 Suresh Kumar K • Digital Marketing & WordPress Portfolio
+    </div>
+  </footer>
+
+  <!-- JS: MENU + EMAILJS LIVE INTEGRATION + WHATSAPP + 3D TILT + SMART FILLERS -->
+  <script>
+    // ================= EMAILJS LIVE CREDENTIALS =================
+    const EMAILJS_PUBLIC_KEY  = "Zho4Oo6etVFovuF8w";
+    const EMAILJS_SERVICE_ID  = "service_ce8rgsd";
+    const EMAILJS_TEMPLATE_ID = "template_vznt2rc";
+
+    (function() {
+      emailjs.init({
+        publicKey: EMAILJS_PUBLIC_KEY,
+      });
+    })();
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // Live IST Clock
+    function updateISTClock() {
+      const now = new Date();
+      const istTime = now.toLocaleTimeString('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      document.getElementById('istClock').textContent = `IST ${istTime}`;
+    }
+    updateISTClock();
+    setInterval(updateISTClock, 30000);
+
+    // One-Tap Smart Message Starter
+    function fillTemplate(text) {
+      const msgBox = document.getElementById('cMsg');
+      msgBox.value = text;
+      msgBox.focus();
+    }
+
+    // Service Chip Selection
+    let selectedService = 'SEO & Organic Growth';
+    document.querySelectorAll('.s-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.s-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        selectedService = chip.getAttribute('data-val');
+      });
+    });
+
+    // Copy to Clipboard with Toast Feedback
+    function copyText(text, label) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toastMsg');
+        document.getElementById('toastText').textContent = label;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    }
+
+    // Direct Email Send via EmailJS
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('emailSubmitBtn');
+      const errorBox = document.getElementById('formError');
+      const originalBtnHTML = btn.innerHTML;
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      errorBox.style.display = 'none';
+
+      const templateParams = {
+        from_name: document.getElementById('cName').value.trim(),
+        from_email: document.getElementById('cEmail').value.trim(),
+        phone: document.getElementById('cPhone').value.trim() || 'Not provided',
+        service: selectedService,
+        message: document.getElementById('cMsg').value.trim()
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function() {
+          document.getElementById('formContentWrap').style.display = 'none';
+          document.getElementById('successCelebration').style.display = 'block';
+          document.getElementById('contactForm').reset();
+          btn.disabled = false;
+          btn.innerHTML = originalBtnHTML;
+        }, function(error) {
+          errorBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to send email. Please try again or message via WhatsApp.';
+          errorBox.style.display = 'flex';
+          btn.disabled = false;
+          btn.innerHTML = originalBtnHTML;
+          console.error('EmailJS Error:', error);
+        });
+    });
+
+    function resetContactForm() {
+      document.getElementById('successCelebration').style.display = 'none';
+      document.getElementById('formContentWrap').style.display = 'block';
+    }
+
+    // Direct WhatsApp Message Option
+    function sendViaWhatsApp() {
+      const name = document.getElementById('cName').value.trim();
+      const phone = document.getElementById('cPhone').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const msg = document.getElementById('cMsg').value.trim();
+
+      if (!name || !msg) {
+        alert('Please enter your Name and Message before sending on WhatsApp.');
+        return;
+      }
+
+      const text = `Hi Suresh Kumar,%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone/Company:* ${encodeURIComponent(phone || 'N/A')}%0A*Email:* ${encodeURIComponent(email || 'N/A')}%0A*Interested In:* ${encodeURIComponent(selectedService)}%0A*Message:* ${encodeURIComponent(msg)}`;
+      window.open(`https://wa.me/918270764314?text=${text}`, '_blank');
+    }
+
+    // 3D Tilt + Cursor Spotlight on Direct Contact Cards
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // Subtle Mouse Parallax for Background Icons
+    document.addEventListener('mousemove', (e) => {
+      const icons = document.querySelectorAll('.bg-icon');
+      const x = (window.innerWidth - e.pageX * 2) / 90;
+      const y = (window.innerHeight - e.pageY * 2) / 90;
+
+      icons.forEach(icon => {
+        const speed = icon.getAttribute('data-speed');
+        icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+  </script>
+</body>
+</html>

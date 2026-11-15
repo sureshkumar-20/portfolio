@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suresh Kumar K — Digital Marketer & WordPress Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #6D28D9;
+      --primary-hover: #5B21B6;
+      --accent-blue: #2563EB;
+      --accent-pink: #EC4899;
+      --primary-soft: #F5F3FF;
+      --dark: #090D16;
+      --text: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #FFFFFF;
+      --whatsapp: #16A34A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1180px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= TRENDING AURORA + WAVE BACKGROUND ================= */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(109, 40, 217, 0.12), transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(37, 99, 235, 0.11), transparent 36%),
+        radial-gradient(circle at 50% 88%, rgba(236, 72, 153, 0.09), transparent 42%),
+        linear-gradient(180deg, #FFFFFF 0%, #F8F6FF 100%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(203, 213, 225, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(203, 213, 225, 0.25) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    }
+
+    .wave-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 340px;
+      opacity: 0.92;
+    }
+
+    .wave-path-1 {
+      animation: waveMove 18s linear infinite;
+    }
+
+    .wave-path-2 {
+      animation: waveMove 26s linear infinite reverse;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+    }
+
+    .bg-icon {
+      position: absolute;
+      color: var(--primary);
+      opacity: 0.08;
+      font-size: 2.5rem;
+      animation: floatIcon 9s ease-in-out infinite alternate;
+      transition: transform 0.2s ease-out;
+    }
+
+    .bg-icon.i1 { top: 14%; left: 6%; animation-delay: 0s; }
+    .bg-icon.i2 { top: 22%; right: 8%; animation-delay: 1.5s; }
+    .bg-icon.i3 { top: 54%; left: 4%; animation-delay: 3s; }
+    .bg-icon.i4 { top: 65%; right: 6%; animation-delay: 2s; }
+    .bg-icon.i5 { top: 38%; left: 48%; animation-delay: 4s; }
+
+    @keyframes floatIcon {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    /* ================= GLASS NAVBAR ================= */
+    header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      box-shadow: 0 6px 16px -4px rgba(109, 40, 217, 0.35);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      padding: 70px 0 70px;
+    }
+
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .status-pill-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(109, 40, 217, 0.08);
+    }
+
+    .live-indicator {
+      width: 8px;
+      height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hero h1 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #6D28D9 0%, #2563EB 48%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .typing-wrap {
+      display: inline-block;
+      color: var(--primary);
+      border-right: 3px solid var(--primary);
+      padding-right: 4px;
+      animation: blinkCursor 0.75s step-end infinite;
+    }
+
+    @keyframes blinkCursor {
+      50% { border-color: transparent; }
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+
+    /* Styled Action Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 38px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 22px -6px rgba(236, 72, 153, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -6px rgba(109, 40, 217, 0.5);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #16A34A, #15803D);
+      color: #fff;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 22px -6px rgba(22, 163, 74, 0.35);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -6px rgba(22, 163, 74, 0.45);
+    }
+
+    .btn-resume {
+      background: #FFFFFF;
+      color: var(--dark);
+      border: 1.5px solid var(--border);
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .btn-resume:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-soft);
+      transform: translateY(-2px);
+    }
+
+    /* Mini Metrics Strip */
+    .quick-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border);
+      padding: 14px;
+      border-radius: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .metric-card:hover {
+      border-color: #C4B5FD;
+    }
+
+    .metric-card h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #6D28D9, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metric-card p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ================= RIGHT BENTO PROFILE CARD ================= */
+    .profile-card-shell {
+      position: relative;
+      padding: 2.5px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #6D28D9, #2563EB, #EC4899, #6D28D9);
+      background-size: 300% 300%;
+      animation: borderShift 6s ease infinite;
+      box-shadow: 0 24px 54px -15px rgba(109, 40, 217, 0.22);
+    }
+
+    @keyframes borderShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .avatar {
+      width: 66px;
+      height: 66px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+      flex-shrink: 0;
+    }
+
+    .profile-top h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .profile-top span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .focus-item {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+      transition: all 0.2s ease;
+    }
+
+    .focus-item:hover {
+      background: var(--primary-soft);
+      border-color: #DDD6FE;
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+
+    .focus-item i {
+      color: var(--primary);
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .card-footer-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-icons a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #F8FAFC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      transition: all 0.2s;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ================= SMOOTH MOVING TOOLS MARQUEE ================= */
+    .marquee-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 24px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 5;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 48px;
+      animation: scrollMarquee 26s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .marquee-item i {
+      color: var(--primary);
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero {
+        padding: 40px 0;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 18px;
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+      .quick-metrics {
+        grid-template-columns: 1fr;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+      .btn-primary, .btn-whatsapp, .btn-resume {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AURORA + WAVE BACKGROUND -->
+  <div class="bg-layer">
+    <div class="bg-grid"></div>
+    <div class="floating-icons" id="parallaxIcons">
+      <i class="fab fa-google bg-icon i1" data-speed="2"></i>
+      <i class="fab fa-meta bg-icon i2" data-speed="-2.5"></i>
+      <i class="fab fa-wordpress bg-icon i3" data-speed="2.5"></i>
+      <i class="fas fa-chart-line bg-icon i4" data-speed="-2"></i>
+      <i class="fas fa-bullseye bg-icon i5" data-speed="1.8"></i>
+    </div>
+
+    <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.65" />
+          <stop offset="50%" stop-color="#2563EB" stop-opacity="0.65" />
+          <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.65" />
+        </linearGradient>
+
+        <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#EC4899" stop-opacity="0.50" />
+          <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.50" />
+        </linearGradient>
+
+        <linearGradient id="waveFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.14" />
+          <stop offset="50%" stop-color="#2563EB" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.14" />
+        </linearGradient>
+      </defs>
+
+      <path class="wave-path-1" fill="none" stroke="url(#waveGrad1)" stroke-width="3"
+        d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150 C1680,70 1920,230 2160,150 C2400,70 2640,230 2880,150" />
+
+      <path class="wave-path-2" fill="none" stroke="url(#waveGrad2)" stroke-width="2.5"
+        d="M0,200 C240,270 480,120 720,200 C960,270 1200,120 1440,200 C1680,270 1920,120 2160,200 C2400,270 2640,120 2880,200" />
+
+      <path class="wave-path-1" fill="url(#waveFill)"
+        d="M0,220 C360,150 720,290 1080,220 C1440,150 1800,290 2160,220 C2520,150 2700,250 2880,220 L2880,320 L0,320 Z" />
+    </svg>
+  </div>
+
+  <!-- CLEAN TOP NAVIGATION -->
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="brand">Suresh<span>Kumar.</span></a>
+      <div class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main>
+    <section class="hero">
+      <div class="container hero-wrapper">
+        
+        <!-- Left Content -->
+        <div>
+          <div class="status-pill-row">
+            <div class="badge">
+              <span class="live-indicator"></span> Available for Opportunities
+            </div>
+          </div>
+
+          <h1>
+            Helping Brands Scale with <br>
+            <span class="typing-wrap" id="typingText"></span>
+          </h1>
+
+          <p class="hero-desc">
+            Hi, I’m <strong>Suresh Kumar K</strong> — an SEO Executive, Digital Marketing Specialist, and WordPress Developer based in Tamil Nadu. I build fast websites and run high-ROI campaigns that turn traffic into qualified leads.
+          </p>
+
+          <!-- Buttons Group -->
+          <div class="btn-group">
+            <a href="projects.html" class="btn-primary">
+              View My Projects <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://wa.me/918270764314" target="_blank" class="btn-whatsapp">
+              <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i> WhatsApp Chat
+            </a>
+            <a href="K.Suresh kumar.pdf" download="K.Suresh kumar.pdf" class="btn-resume">
+              <i class="fas fa-file-pdf" style="color: #DC2626;"></i> Resume
+            </a>
+          </div>
+
+          <div class="quick-metrics">
+            <div class="metric-card">
+              <h3>136+</h3>
+              <p>LinkedIn MQLs Generated</p>
+            </div>
+            <div class="metric-card">
+              <h3>2+ Yrs</h3>
+              <p>Marketing Experience</p>
+            </div>
+            <div class="metric-card">
+              <h3>B.E. CSE</h3>
+              <p>Tech + Marketing Hybrid</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Bento Profile Card with Glowing Border -->
+        <div class="profile-card-shell">
+          <div class="profile-card">
+            <div class="profile-top">
+              <div class="avatar">SK</div>
+              <div>
+                <h2>Suresh Kumar K</h2>
+                <span>SEO Executive & Marketer</span>
+              </div>
+            </div>
+
+            <div class="focus-list">
+              <div class="focus-item">
+                <i class="fas fa-search"></i>
+                <span>On-Page, Off-Page & Technical SEO</span>
+              </div>
+              <div class="focus-item">
+                <i class="fas fa-bullseye"></i>
+                <span>Google Ads & Meta Ads (FB / Insta)</span>
+              </div>
+              <div class="focus-item">
+                <i class="fab fa-wordpress"></i>
+                <span>WordPress & WooCommerce Dev</span>
+              </div>
+              <div class="focus-item">
+                <i class="fas fa-user-check"></i>
+                <span>B2B Lead Generation & Outreach</span>
+              </div>
+            </div>
+
+            <div class="card-footer-links">
+              <span><i class="fas fa-map-marker-alt"></i> Dindigul, Tamil Nadu</span>
+              <div class="social-icons">
+                <a href="mailto:Sureshkumar.k1113@gmail.com" title="Email Me"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+918270764314" title="Call Me"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/918270764314" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MOVING TOOLS MARQUEE -->
+    <section class="marquee-section">
+      <div class="marquee-track">
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Google Ads</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Meta Ads Manager</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> WordPress & WooCommerce</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Google Analytics (GA4)</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Google Search Console</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Ahrefs SEO</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Apollo.io Lead Gen</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> HTML5, CSS3 & JavaScript</span>
+
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Google Ads</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Meta Ads Manager</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> WordPress & WooCommerce</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Google Analytics (GA4)</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Google Search Console</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Ahrefs SEO</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> Apollo.io Lead Gen</span>
+        <span class="marquee-item"><i class="fas fa-check-circle"></i> HTML5, CSS3 & JavaScript</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 Suresh Kumar K • Digital Marketing & WordPress Portfolio
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: MOBILE MENU + TYPING TEXT + PARALLAX -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    const words = [
+      "SEO & Organic Growth.",
+      "High-ROI Meta & Google Ads.",
+      "WordPress Websites.",
+      "B2B Lead Generation."
+    ];
+
+    const typingEl = document.getElementById("typingText");
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        typingEl.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingEl.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 45 : 85;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        speed = 1800;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        speed = 350;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+
+    document.addEventListener('mousemove', (e) => {
+      const icons = document.querySelectorAll('.bg-icon');
+      const x = (window.innerWidth - e.pageX * 2) / 90;
+      const y = (window.innerHeight - e.pageY * 2) / 90;
+
+      icons.forEach(icon => {
+        const speed = icon.getAttribute('data-speed');
+        icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Experience — Suresh Kumar K</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #6D28D9;
+      --primary-hover: #5B21B6;
+      --accent-blue: #3B82F6;
+      --accent-pink: #EC4899;
+      --primary-soft: #F5F3FF;
+      --dark: #0F172A;
+      --text: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1140px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= MATCHING ANIMATED BACKGROUND ================= */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(109, 40, 217, 0.09), transparent 38%),
+        radial-gradient(circle at 90% 20%, rgba(59, 130, 246, 0.09), transparent 38%),
+        radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.07), transparent 42%),
+        linear-gradient(180deg, #FFFFFF 0%, #FAF8FF 100%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.42;
+    }
+
+    .wave-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 340px;
+      opacity: 0.9;
+    }
+
+    .wave-path-1 {
+      animation: waveMove 18s linear infinite;
+    }
+
+    .wave-path-2 {
+      animation: waveMove 26s linear infinite reverse;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .floating-icons {
+      position: absolute;
+      inset: 0;
+    }
+
+    .bg-icon {
+      position: absolute;
+      color: var(--primary);
+      opacity: 0.08;
+      font-size: 2.5rem;
+      animation: floatIcon 9s ease-in-out infinite alternate;
+      transition: transform 0.2s ease-out;
+    }
+
+    .bg-icon.i1 { top: 14%; left: 6%; animation-delay: 0s; }
+    .bg-icon.i2 { top: 22%; right: 8%; animation-delay: 1.5s; }
+    .bg-icon.i3 { top: 54%; left: 4%; animation-delay: 3s; }
+    .bg-icon.i4 { top: 65%; right: 6%; animation-delay: 2s; }
+    .bg-icon.i5 { top: 38%; left: 48%; animation-delay: 4s; }
+
+    @keyframes floatIcon {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: var(--dark);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      transition: background 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* ================= PAGE HEADER ================= */
+    .page-header {
+      padding: 60px 0 36px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 243, 255, 0.95);
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.08);
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #6D28D9 0%, #3B82F6 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-header p {
+      max-width: 650px;
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* ================= CAREER SUMMARY KPI BAR ================= */
+    .career-stats {
+      max-width: 940px;
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stat-pill-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 12px 30px -15px rgba(15, 23, 42, 0.08);
+    }
+
+    .stat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #F5F3FF, #EEF2FF);
+      color: var(--primary);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-pill-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .stat-pill-card span {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    /* ================= EXPERIENCE TIMELINE ================= */
+    .timeline-container {
+      max-width: 940px;
+      margin: 0 auto 60px;
+      position: relative;
+      padding-left: 44px;
+      display: grid;
+      gap: 32px;
+      perspective: 1200px;
+    }
+
+    /* Vertical Gradient Timeline Line */
+    .timeline-container::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: linear-gradient(180deg, #6D28D9 0%, #3B82F6 50%, #EC4899 100%);
+      border-radius: 4px;
+    }
+
+    .exp-card {
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+      position: relative;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px 34px;
+      box-shadow: 0 16px 38px -15px rgba(15, 23, 42, 0.08);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Cursor Spotlight Glow */
+    .exp-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: radial-gradient(
+        450px circle at var(--mouse-x) var(--mouse-y),
+        rgba(109, 40, 217, 0.09),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .exp-card:hover::before {
+      opacity: 1;
+    }
+
+    .exp-card:hover {
+      border-color: #C4B5FD;
+      box-shadow: 0 24px 48px -15px rgba(109, 40, 217, 0.16);
+    }
+
+    /* Highlighted Current Role Card */
+    .exp-card.current-role {
+      border: 1.5px solid #C4B5FD;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 243, 255, 0.92) 100%);
+    }
+
+    /* Timeline Node Marker */
+    .timeline-node {
+      position: absolute;
+      left: -44px;
+      top: 32px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6D28D9, #4F46E5);
+      color: #fff;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.2);
+    }
+
+    .exp-card.current-role .timeline-node {
+      background: linear-gradient(135deg, #6D28D9, #EC4899);
+      animation: nodePulse 2.2s infinite;
+    }
+
+    @keyframes nodePulse {
+      0% { box-shadow: 0 0 0 0 rgba(109, 40, 217, 0.45); }
+      70% { box-shadow: 0 0 0 10px rgba(109, 40, 217, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(109, 40, 217, 0); }
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .role-title-box h2 {
+      font-size: 1.42rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .company-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .date-duration-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border: 1px solid #DDD6FE;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    .duration-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #059669;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 3px 11px;
+      border-radius: 6px;
+    }
+
+    .location-row {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .location-row i {
+      color: var(--accent-pink);
+      margin-top: 3px;
+    }
+
+    .exp-summary {
+      font-size: 0.96rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Key Highlights & Tools Tags */
+    .exp-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-point {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 500;
+    }
+
+    .highlight-point i {
+      color: #10B981;
+      font-size: 0.9rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      position: relative;
+      z-index: 2;
+    }
+
+    .exp-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    /* ================= DARK NEXT PAGE CTA ================= */
+    .next-page-bar {
+      max-width: 940px;
+      margin: 0 auto 60px;
+      background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 30px 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.25);
+    }
+
+    .next-page-bar h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .next-page-bar p {
+      font-size: 0.92rem;
+      color: #CBD5E1;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -6px rgba(236, 72, 153, 0.5);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      padding: 26px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(226, 232, 240, 0.7);
+      background: rgba(255, 255, 255, 0.85);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      .career-stats, .exp-highlights {
+        grid-template-columns: 1fr;
+      }
+      .date-duration-wrap {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 18px;
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+      .exp-card {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MATCHING COLORFUL WAVE LINES, DOT GRID & FLOATING ICONS -->
+  <div class="bg-layer">
+    <div class="bg-grid"></div>
+    <div class="floating-icons" id="parallaxIcons">
+      <i class="fas fa-briefcase bg-icon i1" data-speed="2"></i>
+      <i class="fas fa-chart-line bg-icon i2" data-speed="-2.5"></i>
+      <i class="fas fa-users bg-icon i3" data-speed="2.5"></i>
+      <i class="fas fa-building bg-icon i4" data-speed="-2"></i>
+      <i class="fas fa-rocket bg-icon i5" data-speed="1.8"></i>
+    </div>
+
+    <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.65" />
+          <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.65" />
+          <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.65" />
+        </linearGradient>
+
+        <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#EC4899" stop-opacity="0.50" />
+          <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.50" />
+        </linearGradient>
+
+        <linearGradient id="waveFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.14" />
+          <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#EC4899" stop-opacity="0.14" />
+        </linearGradient>
+      </defs>
+
+      <path class="wave-path-1" fill="none" stroke="url(#waveGrad1)" stroke-width="3"
+        d="M0,150 C240,70 480,230 720,150 C960,70 1200,230 1440,150 C1680,70 1920,230 2160,150 C2400,70 2640,230 2880,150" />
+
+      <path class="wave-path-2" fill="none" stroke="url(#waveGrad2)" stroke-width="2.5"
+        d="M0,200 C240,270 480,120 720,200 C960,270 1200,120 1440,200 C1680,270 1920,120 2160,200 C2400,270 2640,120 2880,200" />
+
+      <path class="wave-path-1" fill="url(#waveFill)"
+        d="M0,220 C360,150 720,290 1080,220 C1440,150 1800,290 2160,220 C2520,150 2700,250 2880,220 L2880,320 L0,320 Z" />
+    </svg>
+  </div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="brand">Suresh<span>Kumar.</span></a>
+      <div class="hamburger" id="menuBtn"><i class="fas fa-bars"></i></div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <div class="badge">
+        <i class="fas fa-briefcase"></i> Professional Career Journey
+      </div>
+      <h1>Work <span class="gradient-text">Experience</span></h1>
+      <p>
+        Proven track record across SEO, Digital Marketing, B2B Lead Generation, and Operations Management.
+      </p>
+    </section>
+
+    <!-- CAREER SUMMARY KPI STRIP -->
+    <section class="career-stats">
+      <div class="stat-pill-card">
+        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+        <div>
+          <h3>3+ Years</h3>
+          <span>Total Professional Experience</span>
+        </div>
+      </div>
+      <div class="stat-pill-card">
+        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+        <div>
+          <h3>2+ Years</h3>
+          <span>SEO, Ads & Lead Gen Focus</span>
+        </div>
+      </div>
+      <div class="stat-pill-card">
+        <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+        <div>
+          <h3>136+ MQLs</h3>
+          <span>Verified B2B Pipeline Impact</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE TIMELINE ================= -->
+    <section class="timeline-container">
+
+      <!-- 1. Netlush Technologies (At Present) -->
+      <div class="exp-card current-role tilt-card">
+        <div class="timeline-node"><i class="fas fa-rocket"></i></div>
+
+        <div class="exp-header">
+          <div class="role-title-box">
+            <h2>SEO Executive & Digital Marketing Specialist</h2>
+            <div class="company-name">
+              <i class="fas fa-building"></i> Netlush Technologies
+            </div>
+          </div>
+          <div class="date-duration-wrap">
+            <span class="date-badge"><i class="far fa-calendar-alt"></i> 06-08-2025 – 30-09-2026</span>
+            <span class="duration-tag"><i class="fas fa-circle" style="font-size: 0.55rem;"></i> At Present</span>
+          </div>
+        </div>
+
+        <div class="location-row">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>No. 64/1, 2nd Floor, Idumban Kovil Itteri Rd, Palani, Tamil Nadu 624601</span>
+        </div>
+
+        <p class="exp-summary">
+          Results-driven SEO Executive & Digital Marketing Specialist with proven expertise in developing and executing data-driven SEO and digital marketing strategies that increase search visibility, website traffic, and conversions. Dedicated to delivering measurable results through innovative growth-focused digital campaigns and improving ROI for businesses.
+        </p>
+
+        <div class="exp-highlights">
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> On-Page, Off-Page & Technical SEO Optimization</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Keyword Research & Content Strategy</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Google Ads, Meta Ads & Email Marketing</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> GA4, Search Console & Ahrefs Tracking</div>
+        </div>
+
+        <div class="exp-tags">
+          <span class="exp-tag">Google Analytics</span>
+          <span class="exp-tag">Search Console</span>
+          <span class="exp-tag">Ahrefs</span>
+          <span class="exp-tag">Google Ads</span>
+          <span class="exp-tag">Meta Ads</span>
+          <span class="exp-tag">WordPress</span>
+          <span class="exp-tag">Email Marketing</span>
+        </div>
+      </div>
+
+      <!-- 2. ZenBright Tech Pvt Ltd -->
+      <div class="exp-card tilt-card">
+        <div class="timeline-node"><i class="fas fa-bullseye"></i></div>
+
+        <div class="exp-header">
+          <div class="role-title-box">
+            <h2>Lead Generation Executive</h2>
+            <div class="company-name">
+              <i class="fas fa-building"></i> ZenBright Tech Pvt Ltd.
+            </div>
+          </div>
+          <div class="date-duration-wrap">
+            <span class="date-badge"><i class="far fa-calendar-alt"></i> 03-11-2023 – 05-11-2024</span>
+            <span class="duration-tag">1 Year</span>
+          </div>
+        </div>
+
+        <div class="location-row">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>1157, 7th Sector, HSR Layout, Bangalore, Karnataka - 560102</span>
+        </div>
+
+        <p class="exp-summary">
+          Specialized in attendees and industry lead research and prospecting, proficiently managing both outbound and inbound lead generation strategies. Experienced in rigorous lead qualification to ensure high-quality prospects are prioritized, collaborating closely with sales teams to drive effective outreach and maximize conversion rates.
+        </p>
+
+        <div class="exp-highlights">
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Attendees & Industry Lead Research</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Outbound & Inbound Lead Generation</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Rigorous B2B Lead Qualification</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Sales Team Alignment & Conversion Growth</div>
+        </div>
+
+        <div class="exp-tags">
+          <span class="exp-tag">B2B Prospecting</span>
+          <span class="exp-tag">LinkedIn Outreach</span>
+          <span class="exp-tag">Apollo.io</span>
+          <span class="exp-tag">Lead Qualification</span>
+          <span class="exp-tag">Inbound & Outbound</span>
+        </div>
+      </div>
+
+      <!-- 3. KSK Sri Surya Construction -->
+      <div class="exp-card tilt-card">
+        <div class="timeline-node"><i class="fas fa-tasks"></i></div>
+
+        <div class="exp-header">
+          <div class="role-title-box">
+            <h2>Manager</h2>
+            <div class="company-name">
+              <i class="fas fa-building"></i> KSK Sri Surya Construction
+            </div>
+          </div>
+          <div class="date-duration-wrap">
+            <span class="date-badge"><i class="far fa-calendar-alt"></i> 08-10-2022 – 20-10-2023</span>
+            <span class="duration-tag">1 Year</span>
+          </div>
+        </div>
+
+        <div class="location-row">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Checkpost, Vedasandur Road, Oddanchatram, Dindigul – 624619</span>
+        </div>
+
+        <p class="exp-summary">
+          Skilled in the effective maintenance and management of construction materials, ensuring optimal inventory levels and quality control. Proficient in implementing tracking systems to monitor material usage, minimizing waste, and reducing operational costs while adhering strictly to project timelines and budgets.
+        </p>
+
+        <div class="exp-highlights">
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Inventory & Material Quality Control</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Usage Tracking & Cost Reduction Systems</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Supplier & Vendor Coordination</div>
+          <div class="highlight-point"><i class="fas fa-check-circle"></i> Safety Audits & Industry Compliance</div>
+        </div>
+
+        <div class="exp-tags">
+          <span class="exp-tag">Operations Management</span>
+          <span class="exp-tag">Inventory Tracking</span>
+          <span class="exp-tag">Vendor Coordination</span>
+          <span class="exp-tag">Budget & Cost Control</span>
+          <span class="exp-tag">Quality Audits</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- DARK NEXT PAGE CALLOUT -->
+    <section class="next-page-bar">
+      <div>
+        <h3>Explore My Live Projects & Campaign Results</h3>
+        <p>Check out ModernComputerz.com, Growzens.com, and my 136+ LinkedIn MQL case study.</p>
+      </div>
+      <a href="projects.html" class="btn-primary">
+        View Projects <i class="fas fa-arrow-right"></i>
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 Suresh Kumar K • Digital Marketing & WordPress Portfolio
+    </div>
+  </footer>
+
+  <!-- JS: MOBILE MENU + 3D TILT + ICON PARALLAX -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // 3D Tilt + Cursor Spotlight Glow
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -2.5;
+        const rotateY = ((x - centerX) / centerX) * 2.5;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // Subtle Mouse Parallax for Floating Icons
+    document.addEventListener('mousemove', (e) => {
+      const icons = document.querySelectorAll('.bg-icon');
+      const x = (window.innerWidth - e.pageX * 2) / 90;
+      const y = (window.innerHeight - e.pageY * 2) / 90;
+
+      icons.forEach(icon => {
+        const speed = icon.getAttribute('data-speed');
+        icon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
